@@ -1,0 +1,174 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+class player {
+private:
+string name, 
+position;
+int number;
+
+
+public:
+player(){
+}
+player (string nome, string posicao, int numero) {
+name = nome;
+position = posicao;
+number = numero;
+}
+
+// sobrecarga de operador ==
+bool operator == (const player & posicao) const {
+return name == posicao.name;
+}
+
+void print () {
+cout << name << "-" << position << "-" << number << endl;
+}
+};
+
+class team {
+private:
+list <player> players;
+string name;
+string nacionalidade;
+int ano;
+
+
+
+public:
+team(){
+name = "";
+nacionalidade = "";
+ano = 0;
+}
+team (string nome, string na, int a) {
+name = nome;
+nacionalidade = na;
+ano = a;
+}
+
+void insertsTeam () {
+
+string timeNome, nacaoTime;
+int anoTime;
+cout << "Qual o time a adicionar:";
+cin >> timeNome;
+
+cout << "Qual a nacionalidade do time:";
+cin >> nacaoTime;
+
+cout << "Qual o ano do time:";
+cin >> anoTime;
+
+
+
+};
+
+
+void registrationPlayer (list <team> & list) {
+cout << "Em qual time o jogador sera adicionado?";
+string e;
+cin >> e; 
+team temp(e, "", 0);
+for (auto & item : list) {
+if (item == temp) {
+item.insertsPlayer ();
+}
+}
+
+int main() {
+    int escolhido;
+    escolhido = 6;
+    list<team> campeonato;
+
+
+    do{
+system("cls");
+cout << "O CAMPEONATO\n";
+cout << "Selecione uma opcao:\n";
+cout << "A-- Cadastrar time;\n";
+cout << "B-- Remover time;\n";
+cout << "C-- Adicionar novo jogador no time;\n";
+cout << "D-- Remover jogador;\n";
+cout << "E-- Ver times e seus jogadores;\n";
+cout << "EXIT-- Sair do programa.\n";
+cin >> escolhido;
+
+switch(escolhido){
+case 0:
+    {
+        break;
+    }
+case 1:
+    {
+      string nomeTime, paisTime;
+      int anoCriacaoTime;
+      cout << "Nome do nome time: ";
+      cin >> nomeTime;
+      cout << "Nacionalidade: ";
+      cin >> paisTime;
+      cout << "Ano de criacao: ";
+      cin >> anoEquipe;
+      equipe temp(nomeTime, paisTime, anoCriacaoTime);
+        campeonato.push_back(temp);
+        cout << "Time inserido sem falha!";
+        break;
+    }
+case 2:
+    {
+    string n;
+      cout << "Time a remover:";
+      cin >> n;
+      equipe temp(n, "", 0);
+        campeonato.remove(temp);
+        cout << "Removido com sucesso!";
+        break;
+    }
+case 3:
+    {
+        cout << "Registrar jogador:" << name << endl;
+        string PlayerName, PlayerPosition;
+        int numeroPlayer;
+        cout << "Insira o nome do jogador:";
+        cin >> numeroPlayer;
+        cout << "Insira a posicao:";
+        cin >> player position;
+        cout << "Qual sera o numero usado pelo jogador:";
+        cin >> numeroPlayer;
+		player temp(PlayerName, PlayerPosition, numeroPlayer);
+        players.push_back (temp);
+        cout << "\ nPlayer successfully inserted \ n";
+}
+break;
+    }
+case 4:
+    {
+    
+        string nome;
+        cout << "Digite o nome do jogador a ser removido:";
+        cin >> nome;
+        temp player (nome, "", 0);
+        players.remove (temp);
+}
+break;
+    }
+case 5:
+    {
+        cout << "Team:" << name;
+        cout << "\ nTeam players: \ n";
+    for (auto item: players) {
+        item.print ();
+}
+}
+break;
+    }
+
+default: cout << "Falha! Nao encontrado!";
+break;
+;
+system("pause");
+}}while(op!=0);
+}
